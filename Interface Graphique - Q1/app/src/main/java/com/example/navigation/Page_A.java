@@ -18,7 +18,7 @@ public class Page_A extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        getSupportActionBar().setTitle("Page A");
         binding.article.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
