@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.list.clear();
         for (int i = 1 ; i < 101 ; i++) {
             Person p = new Person();
-            p.nom = ""+ i;
-            p.age = 20 + (new Random().nextInt(20));
+            p.nom = "Allo"+ i;
+            p.age = new Random().nextInt(20);
             adapter.list.add(p);
         }
         adapter.notifyDataSetChanged();

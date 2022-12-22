@@ -29,6 +29,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
             super(v);
             tvNom = v.findViewById(R.id.tvNom);
             delete = v.findViewById(R.id.delete);
+            tvAge = v.findViewById(R.id.tvAge);
 //            tvAge = v.findViewById(R.id.tvAge);
         }
     }
@@ -57,14 +58,20 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
         // - replace the contents of the view with that element
         Person personneCourante = list.get(position);
         holder.tvNom.setText(personneCourante.nom);
-//        holder.tvAge.setText(""+personneCourante.age); // TODO setText sur un integer crash
+        //holder.tvAge.setText(personneCourante.age);
+        holder.tvAge.setText(""+personneCourante.age); // TODO setText sur un integer crash
         Log.i("DEBOGAGE", "appel a onBindViewHolder " + position);
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent();
-                view.getContext().startActivity(i);
+               // personneCourante.age*=2;
+               // holder.tvAge.setText( Integer.toString(personneCourante.age));
+
+                list.remove(personneCourante);
+                notifyDataSetChanged();
+
+
             }
         });
 
